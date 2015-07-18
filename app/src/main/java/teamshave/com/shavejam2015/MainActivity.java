@@ -1,7 +1,10 @@
 package teamshave.com.shavejam2015;
 
 import android.app.Activity;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.text.TextUtils;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -30,6 +33,15 @@ public class MainActivity extends Activity {
         bill=(EditText)findViewById(R.id.billAmountEditText);
         msg=(TextView)findViewById(R.id.textView2);
         tipPercent=(EditText)findViewById(R.id.tipAmountEditText);
+
+        // Set the percent value based on prefs?
+        SharedPreferences SP = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
+        try {
+            String tipPref = SP.getString("defaultTipPercent", "15");
+            tipPercent.setText(tipPref);
+        } catch (Exception ex) {
+            msg.setText(ex.getMessage());
+        }
 
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -97,11 +109,15 @@ public class MainActivity extends Activity {
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+        switch (id) {
+            case R.id.action_settings:
+                //Toast.makeText(this, "ADD!", Toast.LENGTH_SHORT).show();
+                Intent i = new Intent(this, AppPreferences.class);
+                startActivity(i);
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
         }
 
-        return super.onOptionsItemSelected(item);
     }
 }

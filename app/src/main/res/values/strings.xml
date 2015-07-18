@@ -9,4 +9,8 @@
     <string name="form_label_enter_tip_amount">Enter tip amount:</string>
     <string name="error_invalid_tip_percent">Enter a valid tip percent</string>
     <string name="exception_tip_percent_outside_range">Tip percentage was outside of acceptable range</string>
+    <string name="prefs_default_tip_label">Default tip percent</string>
+    <string name="prefs_default_tip_description">The percentage that will be used for tip calculations by default</string>
+    <string name="prefs_location_recommendation_label">Location recommmendations</string>
+    <string name="prefs_location_recommendation_description">This option will allow the app to recommend tips amounts based on your location.</string>
 </resources>

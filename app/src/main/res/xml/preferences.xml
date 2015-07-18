@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <EditTextPreference android:title="@string/prefs_default_tip_label"
+        android:key="defaultTipPercent"
+        android:inputType="number"
+        android:defaultValue="15"
+        android:summary="@string/prefs_default_tip_description"/>
+    <CheckBoxPreference android:title="@string/prefs_location_recommendation_label"
+        android:defaultValue="false"
+        android:summary="@string/prefs_location_recommendation_description"
+        android:key="allowLocationRecommendations" />
+
+</PreferenceScreen>
