@@ -3,6 +3,7 @@ package teamshave.com.shavejam2015;
 import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -12,7 +13,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 
-public class MainActivity extends ActionBarActivity {
+public class MainActivity extends AppCompatActivity {
 
     protected Button btn;
     protected TextView msg;
@@ -39,7 +40,10 @@ public class MainActivity extends ActionBarActivity {
                 if (!TextUtils.isEmpty(billText)) {
                     try {
                         billAmount = Double.parseDouble(bill.getText().toString());
-                        tip = (billAmount / 100) * 15;
+
+                        int tipPercent = 15;
+                        tip = Calculations.CalculateTip(billAmount, tipPercent);
+
                         msg.setText(String.valueOf(tip));
 
                     } catch (NumberFormatException err) {
