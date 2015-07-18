@@ -5,4 +5,8 @@
     <string name="action_settings">Settings</string>
     <string name="error_no_bill_amount">Please enter a value for bill amount</string>
     <string name="error_invalid_bill_amount">Please enter a valid number for bill amount</string>
+    <string name="form_label_enter_bill_amount">Enter bill amount:</string>
+    <string name="form_label_enter_tip_amount">Enter tip amount:</string>
+    <string name="error_invalid_tip_percent">Enter a valid tip percent</string>
+    <string name="exception_tip_percent_outside_range">Tip percentage was outside of acceptable range</string>
 </resources>

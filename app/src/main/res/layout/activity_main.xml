@@ -5,38 +5,89 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".MainActivity">
 
-    <EditText
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:inputType="numberDecimal"
-        android:ems="10"
-        android:id="@+id/editText"
-        android:layout_above="@+id/button"
-        android:layout_centerHorizontal="true" />
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="36dp"
+        android:id="@+id/billAmountLayout">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/form_label_enter_bill_amount"
+            android:id="@+id/billAmountLabel"
+            android:layout_above="@+id/calculateButton"
+            android:layout_toLeftOf="@+id/billAmountEditText"
+            android:layout_toStartOf="@+id/billAmountEditText"
+            android:layout_marginBottom="60dp"
+            android:layout_weight="1"
+            android:width="100dp" />
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal"
+            android:ems="10"
+            android:id="@+id/billAmountEditText"
+            android:layout_alignBaseline="@+id/calculateButton"
+            android:layout_alignBottom="@+id/calculateButton"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_weight="1"
+            android:width="50dp" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:id="@+id/spaceLabel"
+            android:layout_weight="1" />
+
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/billAmountLayout">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/form_label_enter_tip_amount"
+            android:id="@+id/tipAmountLabel"
+            android:layout_weight="1"
+            android:width="100dp" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:ems="10"
+            android:text="15"
+            android:id="@+id/tipAmountEditText"
+            android:layout_weight="1"
+            android:width="50dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="%"
+            android:id="@+id/percentLabel"
+            android:layout_weight="1" />
+    </LinearLayout>
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Calculate tip"
-        android:id="@+id/button"
+        android:id="@+id/calculateButton"
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Enter bill amount:"
-        android:id="@+id/textView"
-        android:layout_marginBottom="80dp"
-        android:layout_above="@+id/button"
-        android:layout_alignLeft="@+id/button"
-        android:layout_alignStart="@+id/button" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:id="@+id/textView2"
-        android:layout_below="@+id/button"
+        android:layout_below="@+id/calculateButton"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="48dp" />
 
