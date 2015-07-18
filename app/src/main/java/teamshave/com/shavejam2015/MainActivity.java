@@ -1,7 +1,7 @@
 package teamshave.com.shavejam2015;
 
+import android.app.Activity;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -13,7 +13,7 @@ import android.widget.TextView;
 import java.text.DecimalFormat;
 
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends Activity {
 
     protected Button btn;
     protected TextView msg;
