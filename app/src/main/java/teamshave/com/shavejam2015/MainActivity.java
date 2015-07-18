@@ -3,6 +3,7 @@ package teamshave.com.shavejam2015;
 import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -16,8 +17,7 @@ public class MainActivity extends ActionBarActivity {
     protected Button btn;
     protected TextView msg;
     protected EditText bill;
-    protected double tip;
-    protected double billAmount;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,11 +32,28 @@ public class MainActivity extends ActionBarActivity {
             @Override
             public void onClick(View v) {
 
-                billAmount=Double.parseDouble(bill.getText().toString());
+                String billText = bill.getText().toString();
+                double tip;
+                double billAmount;
 
-                tip = (billAmount / 100) * 15;
+                if (!TextUtils.isEmpty(billText)) {
+                    try {
+                        billAmount = Double.parseDouble(bill.getText().toString());
+                        tip = (billAmount / 100) * 15;
+                        msg.setText(String.valueOf(tip));
 
-                msg.setText(String.valueOf(tip));
+                    } catch (NumberFormatException err) {
+                        msg.setText(getString(R.string.error_invalid_bill_amount));
+                    }
+
+
+                } else {
+                    msg.setText(getString(R.string.error_no_bill_amount));
+                }
+
+
+
+
 
             }
         });
