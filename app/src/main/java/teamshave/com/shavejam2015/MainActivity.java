@@ -8,6 +8,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import java.text.DecimalFormat;
@@ -16,9 +17,10 @@ import java.text.DecimalFormat;
 public class MainActivity extends AppCompatActivity {
 
     protected Button btn;
-    protected TextView msg;
+    protected TextView msg, tipExact, percentRecommended;
     protected EditText bill;
     protected EditText tipPercent;
+    protected LinearLayout resultHeadings;
 
 
     @Override
@@ -28,8 +30,12 @@ public class MainActivity extends AppCompatActivity {
 
         btn=(Button)findViewById(R.id.calculateButton);
         bill=(EditText)findViewById(R.id.billAmountEditText);
-        msg=(TextView)findViewById(R.id.textView2);
         tipPercent=(EditText)findViewById(R.id.tipAmountEditText);
+
+        msg=(TextView)findViewById(R.id.textView2);
+        tipExact=(TextView)findViewById(R.id.tipExact);
+        percentRecommended=(TextView)findViewById(R.id.percentRecommended);
+        resultHeadings=(LinearLayout)findViewById(R.id.resultHeadings);
 
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -39,6 +45,7 @@ public class MainActivity extends AppCompatActivity {
                 String tipPercentText = tipPercent.getText().toString();
                 double tip;
                 double billAmount;
+                double total;
                 int tipPercent;
 
                 // Calculate the tip percent
@@ -60,15 +67,20 @@ public class MainActivity extends AppCompatActivity {
                     return;
                 }
 
-                // Calculate the bill amount
+                // Calculate the exact tip amount
                 if (!TextUtils.isEmpty(billText)) {
                     try {
                         billAmount = Double.parseDouble(bill.getText().toString());
 
-
                         tip = Calculations.CalculateTip(billAmount, tipPercent);
                         DecimalFormat df = new DecimalFormat("#.00");
-                        msg.setText(df.format(tip));
+                        total = Calculations.CalculateTotal(billAmount, tip);
+
+                        resultHeadings.setVisibility(View.VISIBLE);
+
+                        tipExact.setText(df.format(tip));
+                        msg.setText("$" + df.format(total));
+                        percentRecommended.setText("(" + tipPercentText + "%)");
 
                     } catch (NumberFormatException err) {
                         msg.setText(getString(R.string.error_invalid_bill_amount));
