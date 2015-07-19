@@ -17,4 +17,16 @@ public final class Calculations {
 
     }
 
+    /**
+     * Calculate the total of bill amount plus calculated tip
+     * @param billAmount The bill amount
+     * @param tipAmount The tip amount
+     * @return The total due
+     */
+    public static double CalculateTotal(double billAmount, double tipAmount) {
+
+        return billAmount + tipAmount;
+
+    }
+
 }

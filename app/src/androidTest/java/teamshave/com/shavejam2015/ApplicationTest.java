@@ -25,4 +25,20 @@ public class ApplicationTest extends ApplicationTestCase<Application> {
         reality = Calculations.CalculateTip(500, 10);
         assertEquals(expected, reality);
     }
+
+    public void testCalculateTotal() throws Exception {
+        double expected;
+        double reality;
+
+        // Calculate total for bill 100 + tip 15
+        expected = 115;
+        reality = Calculations.CalculateTotal(100, 15);
+        assertEquals(expected, reality);
+
+        // Calculate total for bill 275 + tip 37
+        expected  = 312;
+        reality = Calculations.CalculateTotal(275, 37);
+        assertEquals(expected, reality);
+    }
+
 }

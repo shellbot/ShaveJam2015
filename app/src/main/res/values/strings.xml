@@ -13,4 +13,7 @@
     <string name="prefs_default_tip_description">The percentage that will be used for tip calculations by default</string>
     <string name="prefs_location_recommendation_label">Location recommmendations</string>
     <string name="prefs_location_recommendation_description">This option will allow the app to recommend tips amounts based on your location.</string>
+    <string name="exact_tip_heading">Exact tip</string>
+    <string name="recommended_total_heading">Rec. total</string>
+    <string name="recommended_percent_heading">Rec. %</string>
 </resources>
